@@ -1,0 +1,7 @@
+Q:\Develop\c#\TwinFinder\DataMatching\bin\Debug\DataMatching.dll
+Q:\Develop\c#\TwinFinder\DataMatching\bin\Debug\DataMatching.pdb
+Q:\Develop\c#\TwinFinder\DataMatching\bin\Debug\DMF.Base.dll
+Q:\Develop\c#\TwinFinder\DataMatching\bin\Debug\DMF.Base.pdb
+Q:\Develop\c#\TwinFinder\DataMatching\obj\Debug\TwinFinder.Matching.csprojResolveAssemblyReference.cache
+Q:\Develop\c#\TwinFinder\DataMatching\obj\Debug\DataMatching.dll
+Q:\Develop\c#\TwinFinder\DataMatching\obj\Debug\DataMatching.pdb

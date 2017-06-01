@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E332F18D-9ED0-4FBE-A8F6-4E3D6ECB745A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TwinFinder</RootNamespace>
+    <AssemblyName>DataMatching</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnidecodeSharpFork">
+      <HintPath>..\References\UnidecodeSharpFork.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\Extensions\CollectionExtensions.cs" />
+    <Compile Include="Base\Extensions\DataTableExtensions.cs" />
+    <Compile Include="Base\Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Base\Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Base\Extensions\MathExtensions.cs" />
+    <Compile Include="Base\Extensions\StringBuilderExtensions.cs" />
+    <Compile Include="Base\Extensions\StringExtensions.cs" />
+    <Compile Include="Base\Graph\Algorithm\BreadthFirstSearch.cs" />
+    <Compile Include="Base\Graph\Algorithm\DepthFirstSearch.cs" />
+    <Compile Include="Base\Graph\Algorithm\Dijkstra.cs" />
+    <Compile Include="Base\Graph\Algorithm\FloydWarshall.cs" />
+    <Compile Include="Base\Graph\Edge.cs" />
+    <Compile Include="Base\Graph\EdgeList.cs" />
+    <Compile Include="Base\Graph\Graph.cs" />
+    <Compile Include="Base\Graph\GraphNode.cs" />
+    <Compile Include="Base\Graph\Node.cs" />
+    <Compile Include="Base\Graph\NodeList.cs" />
+    <Compile Include="Matching\Cluster\Base\Clusterer.cs" />
+    <Compile Include="Matching\Cluster\Base\ClustererFactory.cs" />
+    <Compile Include="Matching\Cluster\Base\IClusterer.cs" />
+    <Compile Include="Matching\Cluster\ConnectedComponentsClusterer.cs" />
+    <Compile Include="Matching\Cluster\FloydWarshallClusterer.cs" />
+    <Compile Include="Matching\Compare\Algorithm\Base\CompareAlgorithm.cs" />
+    <Compile Include="Matching\Compare\Algorithm\Base\CompareAlgorithmFactory.cs" />
+    <Compile Include="Matching\Compare\Algorithm\Base\ICompareAlgorithm.cs" />
+    <Compile Include="Matching\Compare\Algorithm\Blocking.cs" />
+    <Compile Include="Matching\Compare\Algorithm\SortedNeighborHood.cs" />
+    <Compile Include="Matching\Compare\CompareDefinition.cs" />
+    <Compile Include="Matching\Compare\CompareDefinitionGroup.cs" />
+    <Compile Include="Matching\Compare\CompareExplaination.cs" />
+    <Compile Include="Matching\Compare\CompareField.cs" />
+    <Compile Include="Matching\Compare\RowCompare\Base\IRowComparer.cs" />
+    <Compile Include="Matching\Compare\RowCompare\Base\RowComparer.cs" />
+    <Compile Include="Matching\Compare\RowCompare\StandardRowComparer.cs" />
+    <Compile Include="Matching\Key\KeyDefinition.cs" />
+    <Compile Include="Matching\Key\KeyField.cs" />
+    <Compile Include="Matching\Key\KeyGenerator.cs" />
+    <Compile Include="Matching\MatchingData\MatchingDataManager.cs" />
+    <Compile Include="Matching\MatchingData\Model\MatchingData.cs" />
+    <Compile Include="Matching\MatchingData\Model\MatchPair.cs" />
+    <Compile Include="Matching\MatchingService.cs" />
+    <Compile Include="Matching\Merge\MergeActions.cs" />
+    <Compile Include="Matching\Merge\MergeRule.cs" />
+    <Compile Include="Matching\Merge\MergeRuleGroup.cs" />
+    <Compile Include="Matching\Normalizer.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\AddressSpecific\CityComparer.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\AddressSpecific\CompanyComparer.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\AddressSpecific\NameComparer.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\AddressSpecific\PhoneComparer.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\AddressSpecific\TitleComparer.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Aggregators\AverageAggregator.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Aggregators\Base\Aggregator.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Aggregators\Base\AggregatorFactory.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Aggregators\Base\IAggregator.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Aggregators\HarmonicMeanAggregator.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Aggregators\MaximumAggregator.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Aggregators\MinimumAggregator.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Base\IStringFuzzyComparer.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Base\StringFuzzyComparer.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Base\StringFuzzyComparerFactory.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Common\DamerauLevenshteinDistance.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Common\DiceCoefficent.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Common\Editex.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Common\ExtendedEditex.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Common\ExtendedJaccard.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Common\Identity.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Common\Jaccard.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Common\JaroWinkler.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Common\LevenshteinDistance.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Common\LongestCommonSubsequence.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Common\MongeElkan.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Common\NGramDistance.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\Common\SmithWaterman.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\StringCostFunctions\Base\IStringCostFunction.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\StringCostFunctions\Base\StringCostFunction.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\StringCostFunctions\CharGroupsSubstitutionCostFunction.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\StringCostFunctions\DefaultSubstitutionCostFunction.cs" />
+    <Compile Include="Matching\StringFuzzyCompare\StringCostFunctions\SmithWatermanCostFunction.cs" />
+    <Compile Include="Matching\StringPhoneticKey\Base\IStringPhoneticKeyBuilder.cs" />
+    <Compile Include="Matching\StringPhoneticKey\Base\StringPhoneticKeyBuilder.cs" />
+    <Compile Include="Matching\StringPhoneticKey\Base\StringPhoneticKeyBuilderFactory.cs" />
+    <Compile Include="Matching\StringPhoneticKey\DaitchMokotoff.cs" />
+    <Compile Include="Matching\StringPhoneticKey\DoubleMetaphone.cs" />
+    <Compile Include="Matching\StringPhoneticKey\EditexKey.cs" />
+    <Compile Include="Matching\StringPhoneticKey\Metaphone.cs" />
+    <Compile Include="Matching\StringPhoneticKey\Phonix.cs" />
+    <Compile Include="Matching\StringPhoneticKey\SimpleTextKey.cs" />
+    <Compile Include="Matching\StringPhoneticKey\SoundEx.cs" />
+    <Compile Include="Base\Model\Base\ModelBase.cs" />
+    <Compile Include="Base\Model\Field.cs" />
+    <Compile Include="Base\Model\Pair.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Matching\StringTokenize\Base\IStringTokenizer.cs" />
+    <Compile Include="Matching\StringTokenize\Base\StringTokenizer.cs" />
+    <Compile Include="Matching\StringTokenize\Base\StringTokenizerFactory.cs" />
+    <Compile Include="Matching\StringTokenize\FirstNCharsTokenizer.cs" />
+    <Compile Include="Matching\StringTokenize\NGramTokenizer.cs" />
+    <Compile Include="Matching\StringTokenize\WhiteSpaceTokenizer.cs" />
+    <Compile Include="Matching\StringTokenize\WordTokenizer.cs" />
+    <Compile Include="Base\PropertyChanged\NotifyPropertyChangedBase.cs" />
+    <Compile Include="Base\Utils\ConvertUtil.cs" />
+    <Compile Include="Base\Utils\EncodingUtil.cs" />
+    <Compile Include="Base\Utils\GenericConverter.cs" />
+    <Compile Include="Base\Utils\GenericFactory.cs" />
+    <Compile Include="Base\Utils\KnownTypesProvider.cs" />
+    <Compile Include="Base\Utils\StringUtil.cs" />
+    <Compile Include="Base\Utils\StringWriterWithEncoding.cs" />
+    <Compile Include="Base\Utils\XmlSerializerHelper.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
