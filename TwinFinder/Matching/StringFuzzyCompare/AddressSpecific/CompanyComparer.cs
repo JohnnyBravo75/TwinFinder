@@ -73,7 +73,7 @@ namespace TwinFinder.Matching.StringFuzzyCompare.AddressSpecific
             str = Normalizer.RemoveDiacritics(str);
 
             // replaces separation chars with spaces
-            str = Normalizer.RemoveNoiseChars("-.,()", " ");
+            str = Normalizer.RemoveNoiseChars(str, "-.,()", ' ');
 
             // remove multiple spaces
             str = Normalizer.RemoveMultipleSpaces(str);

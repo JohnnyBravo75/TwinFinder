@@ -1,0 +1,12 @@
+Q:\Develop\c#\TwinFinder\TwinFinder.Sample\bin\Debug\TwinFinder.Sample.exe.config
+Q:\Develop\c#\TwinFinder\TwinFinder.Sample\bin\Debug\TwinFinder.Sample.exe
+Q:\Develop\c#\TwinFinder\TwinFinder.Sample\bin\Debug\TwinFinder.Sample.pdb
+Q:\Develop\c#\TwinFinder\TwinFinder.Sample\bin\Debug\DataMatching.dll
+Q:\Develop\c#\TwinFinder\TwinFinder.Sample\bin\Debug\UnidecodeSharpFork.dll
+Q:\Develop\c#\TwinFinder\TwinFinder.Sample\bin\Debug\DataMatching.pdb
+Q:\Develop\c#\TwinFinder\TwinFinder.Sample\obj\Debug\TwinFinder.Sample.csprojResolveAssemblyReference.cache
+Q:\Develop\c#\TwinFinder\TwinFinder.Sample\obj\Debug\TwinFinder.Sample.FormMatch.resources
+Q:\Develop\c#\TwinFinder\TwinFinder.Sample\obj\Debug\TwinFinder.Sample.Properties.Resources.resources
+Q:\Develop\c#\TwinFinder\TwinFinder.Sample\obj\Debug\TwinFinder.Sample.csproj.GenerateResource.Cache
+Q:\Develop\c#\TwinFinder\TwinFinder.Sample\obj\Debug\TwinFinder.Sample.exe
+Q:\Develop\c#\TwinFinder\TwinFinder.Sample\obj\Debug\TwinFinder.Sample.pdb

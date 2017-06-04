@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Net.NetworkInformation;
+using System.Text.RegularExpressions;
 using TwinFinder.Base.Utils;
 
 namespace TwinFinder.Matching
@@ -29,9 +30,14 @@ namespace TwinFinder.Matching
             return Regex.Replace(str, @"\s+", " ", RegexOptions.Multiline);
         }
 
-        public static string RemoveNoiseChars(string str, string noiseChars)
+        public static string RemoveNoiseChars(string str, string noiseChars, char replaceChar = ' ')
         {
-            return Regex.Replace(str, noiseChars, " ", RegexOptions.Multiline);
+            foreach (var singleChar in noiseChars)
+            {
+                str = str.Replace(singleChar, replaceChar);
+            }
+
+            return str;
         }
     }
 }

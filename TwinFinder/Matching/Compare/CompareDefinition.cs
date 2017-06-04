@@ -52,11 +52,8 @@ namespace TwinFinder.Matching.Compare
         [DataMember]
         public List<CompareField> CompareFields
         {
-            get
-            {
-                return this.compareFields;
-            }
-            private set { this.compareFields = value; }
+            get { return this.compareFields; }
+            set { this.compareFields = value; }
         }
 
         /// <summary>
@@ -65,11 +62,8 @@ namespace TwinFinder.Matching.Compare
         [DataMember]
         public List<CompareField> StopFields
         {
-            get
-            {
-                return this.stopFields;
-            }
-            private set { this.stopFields = value; }
+            get { return this.stopFields; }
+            set { this.stopFields = value; }
         }
 
         /// <summary>

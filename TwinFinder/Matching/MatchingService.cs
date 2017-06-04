@@ -37,7 +37,7 @@ namespace TwinFinder.Matching
             return serializer.Load();
         }
 
-        public int CompareRecords(Dictionary<string, object> record1, Dictionary<string, object> record2, CompareDefinitionGroup compareDefinitionGroup)
+        public int CompareRecords(Dictionary<string, string> record1, Dictionary<string, string> record2, CompareDefinitionGroup compareDefinitionGroup, out string explainPlan)
         {
             if (compareDefinitionGroup == null) { throw new ArgumentNullException("compareDefinitionGroup"); }
             if (compareDefinitionGroup.CompareDefinitions == null) { throw new ArgumentNullException("compareDefinitionGroup.CompareDefinitions"); }
@@ -47,11 +47,13 @@ namespace TwinFinder.Matching
             var table1 = record1.ToDataTable();
             var table2 = record2.ToDataTable();
 
-            return this.CompareRecords(table1, table2, compareDefinitionGroup);
+            return this.CompareRecords(table1, table2, compareDefinitionGroup, out explainPlan);
         }
 
-        public int CompareRecords(DataTable table1, DataTable table2, CompareDefinitionGroup compareDefinitionGroup)
+        public int CompareRecords(DataTable table1, DataTable table2, CompareDefinitionGroup compareDefinitionGroup, out string explainPlan)
         {
+            explainPlan = "";
+
             if (compareDefinitionGroup == null) { throw new ArgumentNullException("compareDefinitionGroup"); }
             if (compareDefinitionGroup.CompareDefinitions == null) { throw new ArgumentNullException("compareDefinitionGroup.CompareDefinitions"); }
             if (table1 == null) { throw new ArgumentNullException("table1"); }
@@ -92,19 +94,20 @@ namespace TwinFinder.Matching
 
                 var match = compareAlgorithm.Matches.First();
 
-                var explainations = compareAlgorithm.RowComparer.Explain(match.From.Value, match.To.Value);
-                Debug.WriteLine("Explaination for: " + compareDefinition.Name);
-                foreach (var explaination in explainations)
-                {
-                    Debug.WriteLine(explaination);
-                }
+                explainPlan = explainPlan.Append("-----Group: " + compareDefinition.Name + "------");
 
-                Debug.WriteLine("Result: " + match.Cost + " - " + compareDefinition.Aggregator.ToStringOrEmpty());
+                var explainations = compareAlgorithm.RowComparer.Explain(match.From.Value, match.To.Value);
+
+                explainPlan = explainPlan.Append(string.Join(Environment.NewLine, explainations));
+                explainPlan = explainPlan.Append("Result = " + match.Cost + " (" + compareDefinition.Aggregator.ToStringOrEmpty() + ")");
 
                 maxMatchScore = Math.Max(match.Cost, maxMatchScore);
+
+                explainPlan = explainPlan.Append("--------------------------------");
             }
 
-            Debug.WriteLine("best result: " + maxMatchScore);
+            //Debug.WriteLine("best result: " + maxMatchScore);
+            explainPlan = explainPlan.Append("best result: " + maxMatchScore);
 
             return maxMatchScore;
         }

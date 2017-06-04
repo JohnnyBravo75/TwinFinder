@@ -1,4 +1,7 @@
-﻿namespace TwinFinder.Matching.Compare
+﻿using System.ComponentModel.Design;
+using TwinFinder.Base.Extensions;
+
+namespace TwinFinder.Matching.Compare
 {
     public class CompareExplaination
     {
@@ -33,7 +36,7 @@
 
         public override string ToString()
         {
-            return string.Format("{0}: '{1}' <-> {2}: '{3}' = {4}", this.CompareField.Name1, this.Value1, this.CompareField.Name2, this.Value2, this.Similarity);
+            return string.Format("{0}: '{1}' <-> {2}: '{3}' = {4} ({5})", this.CompareField.Name1, this.Value1, this.CompareField.Name2, this.Value2, this.Similarity, this.CompareField.FuzzyComparer.ToStringOrEmpty());
             //return this.CompareField.ToStringOrEmpty() + string.Format(" '{0}' <-> '{1}' = {2}", this.Value1, this.Value2, this.Similarity);
         }
     }

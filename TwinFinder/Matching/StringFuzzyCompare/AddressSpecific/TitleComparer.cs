@@ -64,7 +64,7 @@ namespace TwinFinder.Matching.StringFuzzyCompare.AddressSpecific
             //   break up Dr.-Ing and Dipl-Ing into their parts
             //   could be spelled Dipl-Ing, Dipl.-Ing., DiplIng, ...
             //   therefore, replace all possible dividers (-, .) by blanks
-            str = Normalizer.RemoveNoiseChars("-.,", " ");
+            str = Normalizer.RemoveNoiseChars(str, "-.,", ' ');
 
             // use camelCase to break the title (e.g. "ProfDrIng" -> "Prof Dr Ing")
             str = Regex.Replace(str, @"(?<=[a-z])(?=[A-Z])", " ");

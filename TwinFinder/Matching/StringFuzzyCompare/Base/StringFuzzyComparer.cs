@@ -60,5 +60,10 @@ namespace TwinFinder.Matching.StringFuzzyCompare.Base
         /// <param name="str2">The STR2.</param>
         /// <returns></returns>
         public abstract float Compare(string str1, string str2);
+
+        public override string ToString()
+        {
+            return this.GetType().Name;
+        }
     }
 }
