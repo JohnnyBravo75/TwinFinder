@@ -20,22 +20,22 @@ namespace TwinFinder.Sample
 
             this.adr1 = new Address()
             {
-                Firstname = "Thomas",
-                Surname = "Lauzi",
-                Street = "Daimlerstr. 26",
-                Zip = "65197",
-                City = "Wiesbaden",
-                Phone = "(+49)6722 72 39 208"
+                Firstname = "Peter",
+                Surname = "Parker",
+                Street = "Hauptstr. 13a",
+                Zip = "10500",
+                City = "Berlin",
+                Phone = "(+49)30 71 39 212"
             };
 
             this.adr2 = new Address()
             {
-                Firstname = "T.",
-                Surname = "Lauzi",
-                Street = "Daimlerstr. 26",
-                Zip = "65197",
-                City = "Wiesbaden-Dotzheim",
-                Phone = "06722/7239208"
+                Firstname = "P.",
+                Surname = "Parker",
+                Street = "Hauptstrasse 13",
+                Zip = "10500",
+                City = "Berlin-Kreuzberg",
+                Phone = "030/7139212"
             };
 
             this.propertyGrid1.SelectedObject = this.adr1;
@@ -55,7 +55,7 @@ namespace TwinFinder.Sample
                     {
                         new CompareDefinition()
                         {
-                            Name = "NameDefinition",
+                            Name = "AddressDefinition",
                             Aggregator = new AverageAggregator(),
                             CompareFields = new List<CompareField>()
                             {
@@ -71,16 +71,8 @@ namespace TwinFinder.Sample
                                     Name1 = "Surname",
                                     Name2 = "Surname",
                                     FuzzyComparer = new NameComparer()
-                                }
-                            }
-                        },
+                                },
 
-                        new CompareDefinition()
-                        {
-                            Name = "AddressDefinition",
-                            Aggregator = new AverageAggregator(),
-                            CompareFields = new List<CompareField>()
-                            {
                                 new CompareField()
                                 {
                                     Name1 = "Street",
@@ -100,16 +92,8 @@ namespace TwinFinder.Sample
                                     Name1 = "City",
                                     Name2 = "City",
                                     FuzzyComparer = new CityComparer()
-                                }
-                            }
-                        },
+                                },
 
-                        new CompareDefinition()
-                        {
-                            Name = "PhoneDefinition",
-                            Aggregator = new AverageAggregator(),
-                            CompareFields = new List<CompareField>()
-                            {
                                 new CompareField()
                                 {
                                     Name1 = "Phone",
@@ -158,10 +142,10 @@ namespace TwinFinder.Sample
     [Matching(Aggregator = typeof(MaximumAggregator))]
     public class Address
     {
-        [MatchingField(CompareDefinition = "NameDefinition", FuzzyComparer = typeof(NameComparer))]
+        [MatchingField(CompareDefinition = "AddressDefinition", FuzzyComparer = typeof(NameComparer))]
         public string Firstname { get; set; }
 
-        [MatchingField(CompareDefinition = "NameDefinition", FuzzyComparer = typeof(NameComparer))]
+        [MatchingField(CompareDefinition = "AddressDefinition", FuzzyComparer = typeof(NameComparer))]
         public string Surname { get; set; }
 
         [MatchingField(CompareDefinition = "AddressDefinition", FuzzyComparer = typeof(DamerauLevenshteinDistance))]
@@ -173,7 +157,7 @@ namespace TwinFinder.Sample
         [MatchingField(CompareDefinition = "AddressDefinition", FuzzyComparer = typeof(CityComparer))]
         public string City { get; set; }
 
-        [MatchingField(CompareDefinition = "PhoneDefinition", FuzzyComparer = typeof(PhoneComparer))]
+        [MatchingField(CompareDefinition = "AddressDefinition", FuzzyComparer = typeof(PhoneComparer))]
         public string Phone { get; set; }
     }
 }

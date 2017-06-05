@@ -106,10 +106,10 @@ namespace TwinFinder.Matching.Compare.Algorithm
                 System.Diagnostics.Debug.WriteLine("--------Row[" + mainIndex + "]");
 
                 hasMoved1 = (((int)rowIndex1 - lastIndex1) > 0) ? true
-                                                                 : false;
+                                                                : false;
 
                 hasMoved2 = (((int)rowIndex2 - lastIndex2) > 0) ? true
-                                                                 : false;
+                                                                : false;
 
                 this.CompareAllInWindow(dataView1, (int)rowIndex1, this.windowSize, hasMoved1,
                                         dataView2, (int)rowIndex2, this.windowSize, hasMoved2);
