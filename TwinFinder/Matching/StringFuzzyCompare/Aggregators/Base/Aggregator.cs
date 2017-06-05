@@ -26,7 +26,7 @@ namespace TwinFinder.Matching.StringFuzzyCompare.Aggregators.Base
         /// <param name="similarities">The similarities.</param>
         /// <param name="weights">The weights.</param>
         /// <returns></returns>
-        public abstract float AggregatedSimilarity(float[] similarities, float[] weights);
+        public abstract float AggregatedSimilarity(float[] similarities, float[] weights = null);
 
         public override string ToString()
         {

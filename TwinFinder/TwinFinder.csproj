@@ -59,6 +59,7 @@
     <Compile Include="Base\Graph\GraphNode.cs" />
     <Compile Include="Base\Graph\Node.cs" />
     <Compile Include="Base\Graph\NodeList.cs" />
+    <Compile Include="Base\Utils\ReflectionUtil.cs" />
     <Compile Include="Matching\Cluster\Base\Clusterer.cs" />
     <Compile Include="Matching\Cluster\Base\ClustererFactory.cs" />
     <Compile Include="Matching\Cluster\Base\IClusterer.cs" />

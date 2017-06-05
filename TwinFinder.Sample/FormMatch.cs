@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TwinFinder.Matching;
 using TwinFinder.Matching.Compare;
@@ -17,123 +11,169 @@ namespace TwinFinder.Sample
 {
     public partial class FormMatch : Form
     {
+        private Address adr1;
+        private Address adr2;
+
         public FormMatch()
         {
             this.InitializeComponent();
 
-            this.txtFirstname1.Text = "Thomas";
-            this.txtSurname1.Text = "Lauzi";
-            this.txtStreet1.Text = "Daimlerstr. 26";
-            this.txtZip1.Text = "65197";
-            this.txtCity1.Text = "Wiesbaden";
-            this.txtPhone1.Text = "(+49)6722 72 39 208";
+            this.adr1 = new Address()
+            {
+                Firstname = "Thomas",
+                Surname = "Lauzi",
+                Street = "Daimlerstr. 26",
+                Zip = "65197",
+                City = "Wiesbaden",
+                Phone = "(+49)6722 72 39 208"
+            };
 
-            this.txtFirstname2.Text = "T.";
-            this.txtSurname2.Text = "Lauzi";
-            this.txtStreet2.Text = "Daimlerstr. 26";
-            this.txtZip2.Text = "65197";
-            this.txtCity2.Text = "Wiesbaden-Dotzheim";
-            this.txtPhone2.Text = "06722/7239208";
+            this.adr2 = new Address()
+            {
+                Firstname = "T.",
+                Surname = "Lauzi",
+                Street = "Daimlerstr. 26",
+                Zip = "65197",
+                City = "Wiesbaden-Dotzheim",
+                Phone = "06722/7239208"
+            };
+
+            this.propertyGrid1.SelectedObject = this.adr1;
+            this.propertyGrid2.SelectedObject = this.adr2;
         }
 
         private void buttonMatch_Click(object sender, EventArgs e)
         {
+            string explainPlan = "";
+            float result = 0.0f;
+
             var defGroup = new CompareDefinitionGroup()
             {
+                Aggregator = new MaximumAggregator(),
+
                 CompareDefinitions = new List<CompareDefinition>()
-                {
-                    new CompareDefinition()
                     {
-                        Name = "NameDefinition",
-                        Aggregator = new AverageAggregator(),
-                        CompareFields = new List<CompareField>()
+                        new CompareDefinition()
                         {
-                            new CompareField()
+                            Name = "NameDefinition",
+                            Aggregator = new AverageAggregator(),
+                            CompareFields = new List<CompareField>()
                             {
-                                Name1 = "Firstname",
-                                Name2 = "Firstname",
-                                FuzzyComparer = new NameComparer()
-                            },
+                                new CompareField()
+                                {
+                                    Name1 = "Firstname",
+                                    Name2 = "Firstname",
+                                    FuzzyComparer = new NameComparer()
+                                },
 
-                            new CompareField()
-                            {
-                                Name1 = "Surname",
-                                Name2 = "Surname",
-                                FuzzyComparer = new NameComparer()
+                                new CompareField()
+                                {
+                                    Name1 = "Surname",
+                                    Name2 = "Surname",
+                                    FuzzyComparer = new NameComparer()
+                                }
                             }
-                        }
-                    },
+                        },
 
-                    new CompareDefinition()
-                    {
-                        Name = "AddressDefinition",
-                        Aggregator = new AverageAggregator(),
-                        CompareFields = new List<CompareField>()
+                        new CompareDefinition()
                         {
-                            new CompareField()
+                            Name = "AddressDefinition",
+                            Aggregator = new AverageAggregator(),
+                            CompareFields = new List<CompareField>()
                             {
-                                Name1 = "Street",
-                                Name2 = "Street",
-                                FuzzyComparer = new DamerauLevenshteinDistance()
-                            },
+                                new CompareField()
+                                {
+                                    Name1 = "Street",
+                                    Name2 = "Street",
+                                    FuzzyComparer = new DamerauLevenshteinDistance()
+                                },
 
-                            new CompareField()
-                            {
-                                Name1 = "Zip",
-                                Name2 = "Zip",
-                                FuzzyComparer = new Identity()
-                            },
+                                new CompareField()
+                                {
+                                    Name1 = "Zip",
+                                    Name2 = "Zip",
+                                    FuzzyComparer = new Identity()
+                                },
 
-                            new CompareField()
-                            {
-                                Name1 = "City",
-                                Name2 = "City",
-                                FuzzyComparer = new CityComparer()
+                                new CompareField()
+                                {
+                                    Name1 = "City",
+                                    Name2 = "City",
+                                    FuzzyComparer = new CityComparer()
+                                }
                             }
-                        }
-                    },
+                        },
 
-                    new CompareDefinition()
-                    {
-                        Name = "PhoneDefinition",
-                        Aggregator = new AverageAggregator(),
-                        CompareFields = new List<CompareField>()
+                        new CompareDefinition()
                         {
-                            new CompareField()
+                            Name = "PhoneDefinition",
+                            Aggregator = new AverageAggregator(),
+                            CompareFields = new List<CompareField>()
                             {
-                                Name1 = "Phone",
-                                Name2 = "Phone",
-                                FuzzyComparer = new PhoneComparer()
+                                new CompareField()
+                                {
+                                    Name1 = "Phone",
+                                    Name2 = "Phone",
+                                    FuzzyComparer = new PhoneComparer()
+                                }
                             }
                         }
                     }
-                }
             };
 
-            var record1 = new Dictionary<string, string>()
+            if (this.chkToogleMode.Checked)
             {
-                {"Firstname",this.txtFirstname1.Text},
-                {"Surname",this.txtSurname1.Text},
-                {"Street",this.txtStreet1.Text},
-                {"Zip",this.txtZip1.Text},
-                {"City",this.txtCity1.Text},
-                {"Phone",this.txtPhone1.Text}
-            };
-
-            var record2 = new Dictionary<string, string>()
+                result = MatchingService.Instance.CompareRecords(this.adr1, this.adr2, null, out explainPlan);
+            }
+            else
             {
-                {"Firstname",this.txtFirstname2.Text},
-                {"Surname",this.txtSurname2.Text},
-                {"Street",this.txtStreet2.Text},
-                {"Zip",this.txtZip2.Text},
-                {"City",this.txtCity2.Text},
-                {"Phone",this.txtPhone2.Text}
-            };
+                var record1 = new Dictionary<string, string>()
+                {
+                    {"Firstname", this.adr1.Firstname },
+                    {"Surname", this.adr1.Surname},
+                    {"Street", this.adr1.Street},
+                    {"Zip", this.adr1.Zip},
+                    {"City", this.adr1.City},
+                    {"Phone", this.adr1.Phone}
+                };
 
-            string explainPlan = "";
-            var result = MatchingService.Instance.CompareRecords(record1, record2, defGroup, out explainPlan);
+                var record2 = new Dictionary<string, string>()
+                {
+                    {"Firstname", this.adr2.Firstname },
+                    {"Surname", this.adr2.Surname},
+                    {"Street", this.adr2.Street},
+                    {"Zip", this.adr2.Zip},
+                    {"City", this.adr2.City},
+                    {"Phone", this.adr2.Phone}
+                };
+
+                result = MatchingService.Instance.CompareRecords(record1, record2, defGroup, out explainPlan);
+            }
+
             this.txtSimiliarity.Text = result.ToString();
             this.txtExplainPlan.Text = explainPlan;
         }
+    }
+
+    [Matching(Aggregator = "MaximumAggregator")]
+    public class Address
+    {
+        [MatchingField(CompareDefinition = "NameDefinition", FuzzyComparer = "NameComparer")]
+        public string Firstname { get; set; }
+
+        [MatchingField(CompareDefinition = "NameDefinition", FuzzyComparer = "NameComparer")]
+        public string Surname { get; set; }
+
+        [MatchingField(CompareDefinition = "AddressDefinition", FuzzyComparer = "DamerauLevenshteinDistance")]
+        public string Street { get; set; }
+
+        [MatchingField(CompareDefinition = "AddressDefinition", FuzzyComparer = "Identity")]
+        public string Zip { get; set; }
+
+        [MatchingField(CompareDefinition = "AddressDefinition", FuzzyComparer = "CityComparer")]
+        public string City { get; set; }
+
+        [MatchingField(CompareDefinition = "PhoneDefinition", FuzzyComparer = "PhoneComparer")]
+        public string Phone { get; set; }
     }
 }

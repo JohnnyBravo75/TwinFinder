@@ -4,7 +4,7 @@ namespace TwinFinder.Matching.StringFuzzyCompare.Aggregators
 {
     public class HarmonicMeanAggregator : Aggregator
     {
-        public override float AggregatedSimilarity(float[] similarities, float[] weights)
+        public override float AggregatedSimilarity(float[] similarities, float[] weights = null)
         {
             float weightsum = 0;
             float invertedSimilaritySum = 0.0f;

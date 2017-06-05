@@ -96,7 +96,14 @@ namespace TwinFinder.Matching.Compare
         [DataMember]
         public StringFuzzyComparer FuzzyComparer
         {
-            get { return this.fuzzyComparer; }
+            get
+            {
+                if (this.fuzzyComparer == null)
+                {
+                    this.fuzzyComparer = new DamerauLevenshteinDistance();
+                }
+                return this.fuzzyComparer;
+            }
             set { this.fuzzyComparer = value; }
         }
 

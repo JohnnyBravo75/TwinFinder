@@ -4,7 +4,7 @@ namespace TwinFinder.Matching.StringFuzzyCompare.Aggregators
 {
     public class AverageAggregator : Aggregator
     {
-        public override float AggregatedSimilarity(float[] similarities, float[] weights)
+        public override float AggregatedSimilarity(float[] similarities, float[] weights = null)
         {
             float weightsum = 0;
             float similaritySum = 0;

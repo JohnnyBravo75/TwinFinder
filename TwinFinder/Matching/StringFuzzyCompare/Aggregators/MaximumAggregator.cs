@@ -6,7 +6,7 @@ namespace TwinFinder.Matching.StringFuzzyCompare.Aggregators
 
     public class MaximumAggregator : Aggregator
     {
-        public override float AggregatedSimilarity(float[] similarities, float[] weights)
+        public override float AggregatedSimilarity(float[] similarities, float[] weights = null)
         {
             return similarities.Max();
         }
