@@ -170,7 +170,7 @@ namespace TwinFinder.Matching
             var matchingAttr = obj1.GetType().GetCustomAttributes(typeof(MatchingAttribute), false).FirstOrDefault() as MatchingAttribute;
             if (matchingAttr != null)
             {
-                compareDefinitionGroup.Aggregator = GenericFactory.GetInstance<Aggregator>(matchingAttr.Aggregator);
+                compareDefinitionGroup.Aggregator = (Aggregator)Activator.CreateInstance(matchingAttr.Aggregator);
             }
 
             foreach (var prop in obj1.GetType().GetProperties())
@@ -195,7 +195,7 @@ namespace TwinFinder.Matching
                         {
                             Name1 = prop.Name,
                             Name2 = prop.Name,
-                            FuzzyComparer = GenericFactory.GetInstance<StringFuzzyComparer>(fieldAttr.FuzzyComparer)
+                            FuzzyComparer = (StringFuzzyComparer)Activator.CreateInstance(fieldAttr.FuzzyComparer)
                         };
                         compareDef.CompareFields.Add(compareField);
                     }
@@ -208,11 +208,11 @@ namespace TwinFinder.Matching
     public class MatchingFieldAttribute : Attribute
     {
         public string CompareDefinition { get; set; }
-        public string FuzzyComparer { get; set; }
+        public Type FuzzyComparer { get; set; }
     }
 
     public class MatchingAttribute : Attribute
     {
-        public string Aggregator { get; set; }
+        public Type Aggregator { get; set; }
     }
 }

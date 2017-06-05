@@ -34,8 +34,8 @@
             this.txtExplainPlan = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.propertyGrid2 = new System.Windows.Forms.PropertyGrid();
+            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.chkToogleMode = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -101,32 +101,34 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // propertyGrid1
-            // 
-            this.propertyGrid1.HelpVisible = false;
-            this.propertyGrid1.Location = new System.Drawing.Point(16, 18);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(301, 245);
-            this.propertyGrid1.TabIndex = 0;
-            this.propertyGrid1.ToolbarVisible = false;
-            // 
             // propertyGrid2
             // 
             this.propertyGrid2.HelpVisible = false;
             this.propertyGrid2.Location = new System.Drawing.Point(336, 18);
             this.propertyGrid2.Name = "propertyGrid2";
+            this.propertyGrid2.PropertySort = System.Windows.Forms.PropertySort.Categorized;
             this.propertyGrid2.Size = new System.Drawing.Size(301, 245);
             this.propertyGrid2.TabIndex = 1;
             this.propertyGrid2.ToolbarVisible = false;
+            // 
+            // propertyGrid1
+            // 
+            this.propertyGrid1.HelpVisible = false;
+            this.propertyGrid1.Location = new System.Drawing.Point(16, 18);
+            this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.PropertySort = System.Windows.Forms.PropertySort.Categorized;
+            this.propertyGrid1.Size = new System.Drawing.Size(301, 245);
+            this.propertyGrid1.TabIndex = 0;
+            this.propertyGrid1.ToolbarVisible = false;
             // 
             // chkToogleMode
             // 
             this.chkToogleMode.AutoSize = true;
             this.chkToogleMode.Location = new System.Drawing.Point(375, 327);
             this.chkToogleMode.Name = "chkToogleMode";
-            this.chkToogleMode.Size = new System.Drawing.Size(143, 21);
+            this.chkToogleMode.Size = new System.Drawing.Size(212, 21);
             this.chkToogleMode.TabIndex = 23;
-            this.chkToogleMode.Text = "Use Static objects";
+            this.chkToogleMode.Text = "Use classes with annotations";
             this.chkToogleMode.UseVisualStyleBackColor = true;
             // 
             // FormMatch

@@ -155,25 +155,25 @@ namespace TwinFinder.Sample
         }
     }
 
-    [Matching(Aggregator = "MaximumAggregator")]
+    [Matching(Aggregator = typeof(MaximumAggregator))]
     public class Address
     {
-        [MatchingField(CompareDefinition = "NameDefinition", FuzzyComparer = "NameComparer")]
+        [MatchingField(CompareDefinition = "NameDefinition", FuzzyComparer = typeof(NameComparer))]
         public string Firstname { get; set; }
 
-        [MatchingField(CompareDefinition = "NameDefinition", FuzzyComparer = "NameComparer")]
+        [MatchingField(CompareDefinition = "NameDefinition", FuzzyComparer = typeof(NameComparer))]
         public string Surname { get; set; }
 
-        [MatchingField(CompareDefinition = "AddressDefinition", FuzzyComparer = "DamerauLevenshteinDistance")]
+        [MatchingField(CompareDefinition = "AddressDefinition", FuzzyComparer = typeof(DamerauLevenshteinDistance))]
         public string Street { get; set; }
 
-        [MatchingField(CompareDefinition = "AddressDefinition", FuzzyComparer = "Identity")]
+        [MatchingField(CompareDefinition = "AddressDefinition", FuzzyComparer = typeof(Identity))]
         public string Zip { get; set; }
 
-        [MatchingField(CompareDefinition = "AddressDefinition", FuzzyComparer = "CityComparer")]
+        [MatchingField(CompareDefinition = "AddressDefinition", FuzzyComparer = typeof(CityComparer))]
         public string City { get; set; }
 
-        [MatchingField(CompareDefinition = "PhoneDefinition", FuzzyComparer = "PhoneComparer")]
+        [MatchingField(CompareDefinition = "PhoneDefinition", FuzzyComparer = typeof(PhoneComparer))]
         public string Phone { get; set; }
     }
 }
