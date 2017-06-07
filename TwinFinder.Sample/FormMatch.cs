@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Windows.Forms;
 using TwinFinder.Matching;
 using TwinFinder.Matching.Compare;
 using TwinFinder.Matching.StringFuzzyCompare.AddressSpecific;
 using TwinFinder.Matching.StringFuzzyCompare.Aggregators;
 using TwinFinder.Matching.StringFuzzyCompare.Common;
+using TwinFinder.Matching.StringPhoneticKey;
+using TwinFinder.Matching.StringPhoneticKey.Base;
 
 namespace TwinFinder.Sample
 {
@@ -136,6 +139,21 @@ namespace TwinFinder.Sample
 
             this.txtSimiliarity.Text = result.ToString();
             this.txtExplainPlan.Text = explainPlan;
+        }
+
+        private void btnGenerateMatchKey_Click(object sender, EventArgs e)
+        {
+            var result = new StringBuilder();
+
+            result.AppendLine("EditexKey=" + new EditexKey().BuildKey(this.txtMatchKeySample.Text));
+            result.AppendLine("DaitchMokotoff=" + new DaitchMokotoff().BuildKey(this.txtMatchKeySample.Text));
+            result.AppendLine("Phonix=" + new Phonix().BuildKey(this.txtMatchKeySample.Text));
+            result.AppendLine("SoundEx=" + new SoundEx().BuildKey(this.txtMatchKeySample.Text));
+            result.AppendLine("SimpleTextKey=" + new SimpleTextKey().BuildKey(this.txtMatchKeySample.Text));
+            result.AppendLine("Metaphone=" + new Metaphone().BuildKey(this.txtMatchKeySample.Text));
+            result.AppendLine("DoubleMetaphone=" + new DoubleMetaphone().BuildKey(this.txtMatchKeySample.Text));
+
+            this.txtMatchKeyResult.Text = result.ToString();
         }
     }
 
