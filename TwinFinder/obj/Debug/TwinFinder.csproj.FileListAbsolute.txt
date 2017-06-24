@@ -1,5 +1,0 @@
-Q:\Develop\c#\TwinFinder\TwinFinder\bin\Debug\DataMatching.dll
-Q:\Develop\c#\TwinFinder\TwinFinder\bin\Debug\DataMatching.pdb
-Q:\Develop\c#\TwinFinder\TwinFinder\obj\Debug\DataMatching.dll
-Q:\Develop\c#\TwinFinder\TwinFinder\obj\Debug\DataMatching.pdb
-Q:\Develop\c#\TwinFinder\TwinFinder\obj\Debug\TwinFinder.csprojResolveAssemblyReference.cache

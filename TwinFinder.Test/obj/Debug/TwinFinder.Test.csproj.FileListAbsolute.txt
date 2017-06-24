@@ -1,8 +1,0 @@
-Q:\Develop\c#\TwinFinder\TwinFinder.Test\bin\Debug\TwinFinder.Test.dll
-Q:\Develop\c#\TwinFinder\TwinFinder.Test\bin\Debug\TwinFinder.Test.pdb
-Q:\Develop\c#\TwinFinder\TwinFinder.Test\bin\Debug\DataMatching.dll
-Q:\Develop\c#\TwinFinder\TwinFinder.Test\bin\Debug\UnidecodeSharpFork.dll
-Q:\Develop\c#\TwinFinder\TwinFinder.Test\bin\Debug\DataMatching.pdb
-Q:\Develop\c#\TwinFinder\TwinFinder.Test\obj\Debug\TwinFinder.Test.csprojResolveAssemblyReference.cache
-Q:\Develop\c#\TwinFinder\TwinFinder.Test\obj\Debug\TwinFinder.Test.dll
-Q:\Develop\c#\TwinFinder\TwinFinder.Test\obj\Debug\TwinFinder.Test.pdb
