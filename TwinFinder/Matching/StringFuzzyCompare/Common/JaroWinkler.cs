@@ -55,9 +55,6 @@ namespace TwinFinder.Matching.StringFuzzyCompare.Common
                 return 1.0f;
             }
 
-            int length1 = str1.Length;
-            int length2 = str2.Length;
-
             // the distance used for acceptable transpositions (about the half string length)
             int matchRange = ((Math.Min(str1.Length, str2.Length)) / 2) +
                              ((Math.Min(str1.Length, str2.Length)) % 2);

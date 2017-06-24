@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.Design;
-using TwinFinder.Base.Extensions;
+﻿using TwinFinder.Base.Extensions;
 
 namespace TwinFinder.Matching.Compare
 {

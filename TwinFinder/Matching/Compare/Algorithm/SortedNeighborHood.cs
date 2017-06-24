@@ -127,7 +127,7 @@ namespace TwinFinder.Matching.Compare.Algorithm
         /// All data rows in this block (window) gets compared to each other.
         /// when thy match, they are put in the match or the possible match list.
         /// </summary>
-        /// <param name="dataViewA">The sorted data view.</param>
+        /// <param name="dataView">The sorted data view.</param>
         /// <param name="windowStart">The window start index.</param>
         /// <param name="windowSize">Size of the window.</param>
         /// <param name="overlapping">The overlapping of the last window (prevents double checkings when the window moves over the data).</param>

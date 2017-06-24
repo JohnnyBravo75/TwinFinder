@@ -15,7 +15,9 @@ namespace TwinFinder.Base.Graph
         {
             // Add the specified number of items
             for (int i = 0; i < initialSize; i++)
+            {
                 base.Items.Add(default(Node<T>));
+            }
         }
 
         // ***********************Functions***********************
@@ -27,7 +29,7 @@ namespace TwinFinder.Base.Graph
 
         public NodeList<T> Clone()
         {
-            NodeList<T> newList = new NodeList<T>();
+            var newList = new NodeList<T>();
             foreach (var node in this.Items)
             {
                 newList.Add((GraphNode<T>)node);
@@ -45,8 +47,12 @@ namespace TwinFinder.Base.Graph
         {
             // search the list for the value
             foreach (GraphNode<T> node in this.Items)
+            {
                 if (node.Value.Equals(value))
+                {
                     return node;
+                }
+            }
 
             // if we reached here, we didn't find a matching node
             return null;

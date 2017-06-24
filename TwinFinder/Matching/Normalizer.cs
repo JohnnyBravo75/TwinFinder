@@ -1,5 +1,4 @@
-﻿using System.Net.NetworkInformation;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using TwinFinder.Base.Utils;
 
 namespace TwinFinder.Matching

@@ -55,7 +55,12 @@ namespace TwinFinder.Matching.StringPhoneticKey
 
         private string BuildMetaphone(string str1)
         {
-            StringBuilder encodingBuilder = new StringBuilder();
+            if (str1 == null)
+            {
+                return "";
+            }
+
+            var encodingBuilder = new StringBuilder();
             int charIndex = 0;
 
             //Do the BOW checks

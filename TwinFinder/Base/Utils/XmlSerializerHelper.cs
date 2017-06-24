@@ -44,8 +44,11 @@ namespace TwinFinder.Base.Utils
             }
             finally
             {
-                reader.Close();
-                reader.Dispose();
+                if (reader != null)
+                {
+                    reader.Close();
+                    reader.Dispose();
+                }
             }
         }
 
@@ -69,8 +72,11 @@ namespace TwinFinder.Base.Utils
             }
             finally
             {
-                writer.Close();
-                writer.Dispose();
+                if (writer != null)
+                {
+                    writer.Close();
+                    writer.Dispose();
+                }
             }
         }
 

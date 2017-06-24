@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TwinFinder.Matching.StringPhoneticKey;
 using TwinFinder.Matching.StringPhoneticKey.Base;
@@ -16,14 +15,14 @@ namespace TwinFinder.Test
                 "Albert Einstein",
                 "A. Einstein",
                 "Einstein Albert",
-				"Feinstein Albert",
-				"Kleinstein Albrecht",
+                "Feinstein Albert",
+                "Kleinstein Albrecht",
                 "Albert Feinstein",
                 "Albrecht Kleinstein",
                 "Kalbert Einstein",
                 "Heinz Einstein",
                 "Albert Zweistein"
-				};
+                };
 
             this.StringMatchKeyTest(testCases);
         }
@@ -33,17 +32,17 @@ namespace TwinFinder.Test
         {
             string[] testCases =  {
                 "2130 South Fort Union Blvd.",
-				"2689 East Milkin Ave.",
-				"85 Morrison",
-				"2350 North Main",
-				"567 West Center Street",
-				"2130 Fort Union Boulevard",
-				"2310 S. Ft. Union Blvd.",
-				"98 West Fort Union",
-				"Rural Route 2 Box 29",
-				"PO Box 2130",
-				"30 Harvard Blvd."
-				};
+                "2689 East Milkin Ave.",
+                "85 Morrison",
+                "2350 North Main",
+                "567 West Center Street",
+                "2130 Fort Union Boulevard",
+                "2310 S. Ft. Union Blvd.",
+                "98 West Fort Union",
+                "Rural Route 2 Box 29",
+                "PO Box 2130",
+                "30 Harvard Blvd."
+                };
 
             this.StringMatchKeyTest(testCases);
         }

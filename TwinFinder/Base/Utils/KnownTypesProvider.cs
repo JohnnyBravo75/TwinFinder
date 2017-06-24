@@ -85,7 +85,7 @@ namespace TwinFinder.Base.Utils
             RegisterCustomTypes();
 
             // Exclude Namespaces
-            if (excludeNameSpacePrefixes != null)
+            if (excludeNameSpacePrefixes != null && knownTypes != null)
             {
                 foreach (string excludeNampeSpace in excludeNameSpacePrefixes)
                 {

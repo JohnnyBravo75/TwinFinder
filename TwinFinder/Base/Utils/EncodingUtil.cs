@@ -11,7 +11,7 @@ namespace TwinFinder.Base.Utils
     /// Sample: Encoding enc = DetectEncoding(stream, new Encoding[] { Encoding.ASCII, Encoding.UTF8, Encoding.Unicode, Encoding.UTF32, Encoding.UTF7 }, new string[] { "ö", "ü", "ä", "Ö", "ü", "Ä", "ß" }, 25);
     ///
     /// </summary>
-    public class EncodingUtil
+    public static class EncodingUtil
     {
         /// <summary>
         /// Gibt das Encoding eine Datei zurück.
@@ -39,7 +39,6 @@ namespace TwinFinder.Base.Utils
                 {
                     fstream.Close();
                     fstream.Dispose();
-                    fstream = null;
                 }
             }
 
@@ -83,14 +82,14 @@ namespace TwinFinder.Base.Utils
         /// Gibt das Encoding eine Datei zurück.
         /// </summary>
         /// <param name="stream">Der Stream der geprüft werden soll.</param>
-        /// <param name="toTest">Die Encodings und Codepages, die getestet werden sollen.</param>
-        /// <param name="manuChars">Wenn kein BOM-Header angegeben wurde, welche Zeichen einzeln geprüft werden sollen, ob diese enthalten sind.</param>
+        /// <param name="testEncodings">Die Encodings und Codepages, die getestet werden sollen.</param>
+        /// <param name="testChars">Wenn kein BOM-Header angegeben wurde, welche Zeichen einzeln geprüft werden sollen, ob diese enthalten sind.</param>
         /// <param name="testLines">Die Anzahl der Zeilen, die geprüft werden, wenn kein BOM-Header angegeben wurde.</param>
         /// <returns>Das entsprechend gefundene Encoding. Wenn keins gefunden wurde, wird Encoding.Default zurückgegeben.</returns>
         public static Encoding DetectEncoding(Stream stream, Encoding[] testEncodings, string[] testChars, int testLines)
         {
             if (stream == null) throw new ArgumentNullException("stream");
-            if (testEncodings == null) throw new ArgumentNullException("toTest");
+            if (testEncodings == null) throw new ArgumentNullException("testEncodings");
             if (testChars == null) throw new ArgumentNullException("testChars");
             if (testLines < 0) throw new ArgumentOutOfRangeException("testLines");
 
@@ -133,11 +132,10 @@ namespace TwinFinder.Base.Utils
                     {
                         stream.Position = 0;
                         int curline = 0;
-                        string line;
 
                         var reader = new StreamReader(stream, encoding);
                         readers.Add(reader);
-                        line = reader.ReadLine();
+                        var line = reader.ReadLine();
                         while (line != null && curline < testLines)
                         {
                             for (int i = 0; i < testChars.Length; i++)

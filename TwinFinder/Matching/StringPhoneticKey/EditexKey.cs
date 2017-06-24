@@ -49,7 +49,7 @@ namespace TwinFinder.Matching.StringPhoneticKey
 
             var result = new StringBuilder();
 
-            if (str1 != null && str1.Length > 0)
+            if (!string.IsNullOrEmpty(str1))
             {
                 string previousCode = "";
                 string currentCode = "";

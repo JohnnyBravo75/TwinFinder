@@ -57,29 +57,29 @@ namespace TwinFinder.Matching.StringPhoneticKey
 
             str1 = str1.ToUpper() + "*";
 
-            while ((this.daimok_rules[n].Length > 0) && (str1.Length > 0))
+            while ((this.daimokRules[n].Length > 0) && (str1.Length > 0))
             {
-                if (str1.RangeMatches(pos, this.daimok_rules[n], 0, this.daimok_rules[n].Length))
+                if (str1.RangeMatches(pos, this.daimokRules[n], 0, this.daimokRules[n].Length))
                 {
                     /* check the position of the sound */
                     if (pos == 0)
                     {
                         /* the beginning */
-                        sound = this.daimok_rules[n + 1];
-                        pos = pos + this.daimok_rules[n].Length;
+                        sound = this.daimokRules[n + 1];
+                        pos = pos + this.daimokRules[n].Length;
                     }
                     else
                     {
-                        pos = pos + this.daimok_rules[n].Length;
+                        pos = pos + this.daimokRules[n].Length;
 
                         if ((str1[pos] == 'A') || (str1[pos] == 'E') || (str1[pos] == 'I') || (str1[pos] == 'O') || (str1[pos] == 'U'))
                         {
                             /* vor einem Vokal */
-                            sound = this.daimok_rules[n + 2];
+                            sound = this.daimokRules[n + 2];
                         }
                         else
                         {
-                            sound = this.daimok_rules[n + 3];
+                            sound = this.daimokRules[n + 3];
                         }
                     }
 
@@ -116,7 +116,7 @@ namespace TwinFinder.Matching.StringPhoneticKey
 
         // rule table for DaitchMokotoff algorithmus.
         // "sound", "code when in beginning of the string", "code when before a vowel", "code when the others don´t match"
-        private readonly string[] daimok_rules = {
+        private readonly string[] daimokRules = {
                                                             "ZSCH", "4", "4", "4",
                                                             "ZSH", "4", "4", "4",
                                                             "TCH", "4", "4", "4",

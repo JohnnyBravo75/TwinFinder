@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
-using TwinFinder.Base.Extensions;
 using TwinFinder.Matching.StringFuzzyCompare.Base;
 
 namespace TwinFinder.Matching.StringFuzzyCompare.Common

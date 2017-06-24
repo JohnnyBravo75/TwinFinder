@@ -124,7 +124,14 @@ namespace TwinFinder.Base.Graph
                 return false;
             }
 
-            if (this.Value.Equals((obj as Node<T>).Value))
+            var other = (obj as Node<T>);
+
+            if (other == null)
+            {
+                return false;
+            }
+
+            if (this.Value.Equals(other.Value))
             {
                 return true;
             }

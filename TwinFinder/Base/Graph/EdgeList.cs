@@ -15,14 +15,16 @@ namespace TwinFinder.Base.Graph
         {
             // Add the specified number of items
             for (int i = 0; i < initialSize; i++)
-                base.Items.Add(default(Edge<T>));
+            {
+                this.Items.Add(default(Edge<T>));
+            }
         }
 
         // ***********************Functions***********************
 
         public EdgeList<T> Clone()
         {
-            EdgeList<T> newList = new EdgeList<T>();
+            var newList = new EdgeList<T>();
             foreach (var edge in this.Items)
             {
                 newList.Add(edge);

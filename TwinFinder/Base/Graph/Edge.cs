@@ -37,8 +37,15 @@
                 return false;
             }
 
-            if ((this.From.Equals((obj as Edge<T>).From))
-             && (this.To.Equals((obj as Edge<T>).To)))
+            var other = (obj as Edge<T>);
+
+            if (other == null)
+            {
+                return false;
+            }
+
+            if ((this.From.Equals(other.From))
+             && (this.To.Equals(other.To)))
             {
                 return true;
             }

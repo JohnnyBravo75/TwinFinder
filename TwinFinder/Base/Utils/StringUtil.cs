@@ -336,7 +336,7 @@ namespace TwinFinder.Base.Utils
         {
             if (str == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException("str");
             }
 
             if (seperators == null)

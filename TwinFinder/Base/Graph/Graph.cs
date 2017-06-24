@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 namespace TwinFinder.Base.Graph
@@ -23,10 +22,7 @@ namespace TwinFinder.Base.Graph
 
         public Graph(NodeList<T> nodeSet)
         {
-            if (nodeSet == null)
-                this.nodeSet = new NodeList<T>();
-            else
-                this.nodeSet = nodeSet;
+            this.nodeSet = nodeSet ?? new NodeList<T>();
         }
 
         // ***********************Properties***********************
@@ -35,7 +31,7 @@ namespace TwinFinder.Base.Graph
         {
             get
             {
-                List<Edge<T>> edges = new List<Edge<T>>();
+                var edges = new List<Edge<T>>();
 
                 // enumerate through each node in the nodeSet, looking for edges
                 foreach (GraphNode<T> node in this.nodeSet)
@@ -44,7 +40,7 @@ namespace TwinFinder.Base.Graph
                     foreach (GraphNode<T> neighborNode in node.Neighbors)
                     {
                         int costToNeighbor = node.CostToNeighbor(neighborNode);
-                        Edge<T> edge = new Edge<T>(new GraphNode<T>(node.Value), new GraphNode<T>(neighborNode.Value), costToNeighbor, Direction.Undirected);
+                        var edge = new Edge<T>(new GraphNode<T>(node.Value), new GraphNode<T>(neighborNode.Value), costToNeighbor, Direction.Undirected);
 
                         if (!edges.Contains(edge))
                         {
@@ -66,7 +62,7 @@ namespace TwinFinder.Base.Graph
         /// </value>
         public int Infinity
         {
-            get { return Int32.MaxValue / 3; }
+            get { return int.MaxValue / 3; }
         }
 
         /// <summary>
@@ -91,32 +87,12 @@ namespace TwinFinder.Base.Graph
         // ***********************Functions***********************
 
         /// <summary>
-        /// Adds a directed edge from a GraphNode with one value (from) to a GraphNode with another value (to).
-        /// </summary>
-        /// <param name="from">The value of the GraphNode from which the directed edge eminates.</param>
-        /// <param name="to">The value of the GraphNode to which the edge leads.</param>
-        public void AddDirectedEdge(T from, T to)
-        {
-            this.AddDirectedEdge(from, to, 0);
-        }
-
-        /// <summary>
-        /// Adds a directed edge from one GraphNode (from) to another (to).
-        /// </summary>
-        /// <param name="from">The GraphNode from which the directed edge eminates.</param>
-        /// <param name="to">The GraphNode to which the edge leads.</param>
-        public void AddDirectedEdge(GraphNode<T> from, GraphNode<T> to)
-        {
-            this.AddDirectedEdge(from, to, 0);
-        }
-
-        /// <summary>
         /// Adds a directed edge from one GraphNode (from) to another (to) with an associated cost.
         /// </summary>
         /// <param name="from">The GraphNode from which the directed edge eminates.</param>
         /// <param name="to">The GraphNode to which the edge leads.</param>
         /// <param name="cost">The cost of the edge from "from" to "to".</param>
-        public void AddDirectedEdge(GraphNode<T> from, GraphNode<T> to, int cost)
+        public void AddDirectedEdge(GraphNode<T> from, GraphNode<T> to, int cost = 0)
         {
             this.AddDirectedEdge(from.Value, to.Value, cost);
         }
@@ -137,7 +113,7 @@ namespace TwinFinder.Base.Graph
         /// <param name="from">The value of the GraphNode from which the directed edge eminates.</param>
         /// <param name="to">The value of the GraphNode to which the edge leads.</param>
         /// <param name="cost">The cost of the edge from "from" to "to".</param>
-        public void AddDirectedEdge(T from, T to, int cost)
+        public void AddDirectedEdge(T from, T to, int cost = 0)
         {
             if (this.nodeSet.FindByValue(from) == null)
             {
@@ -177,32 +153,12 @@ namespace TwinFinder.Base.Graph
         }
 
         /// <summary>
-        /// Adds an undirected edge from a GraphNode with one value (from) to a GraphNode with another value (to).
-        /// </summary>
-        /// <param name="from">The value of one of the GraphNodes that is joined by the edge.</param>
-        /// <param name="to">The value of one of the GraphNodes that is joined by the edge.</param>
-        public void AddUndirectedEdge(T from, T to)
-        {
-            this.AddUndirectedEdge(from, to, 0);
-        }
-
-        /// <summary>
-        /// Adds an undirected edge from one GraphNode to another.
-        /// </summary>
-        /// <param name="from">One of the GraphNodes that is joined by the edge.</param>
-        /// <param name="to">One of the GraphNodes that is joined by the edge.</param>
-        public void AddUndirectedEdge(GraphNode<T> from, GraphNode<T> to)
-        {
-            this.AddUndirectedEdge(from, to, 0);
-        }
-
-        /// <summary>
         /// Adds an undirected edge from one GraphNode to another with an associated cost.
         /// </summary>
         /// <param name="from">One of the GraphNodes that is joined by the edge.</param>
         /// <param name="to">One of the GraphNodes that is joined by the edge.</param>
         /// <param name="cost">The cost of the undirected edge.</param>
-        public void AddUndirectedEdge(GraphNode<T> from, GraphNode<T> to, int cost)
+        public void AddUndirectedEdge(GraphNode<T> from, GraphNode<T> to, int cost = 0)
         {
             if (!this.nodeSet.Contains(from))
             {
@@ -245,7 +201,7 @@ namespace TwinFinder.Base.Graph
         /// <param name="from">The value of one of the GraphNodes that is joined by the edge.</param>
         /// <param name="to">The value of one of the GraphNodes that is joined by the edge.</param>
         /// <param name="cost">The cost of the undirected edge.</param>
-        public void AddUndirectedEdge(T from, T to, int cost)
+        public void AddUndirectedEdge(T from, T to, int cost = 0)
         {
             if (this.nodeSet.FindByValue(from) == null)
             {

@@ -69,7 +69,7 @@ namespace TwinFinder.Matching.StringFuzzyCompare.Common
         private float BuildExtendedJaccard(string[] nGrams1, string[] nGrams2)
         {
             // all distinct tokens together -> #M Mü ül ll le er r# Me ei ie
-            float unionNGrams = nGrams1.Union(nGrams2).Count();
+            // float unionNGrams = nGrams1.Union(nGrams2).Count();
 
             // inner set of tokens (intersect) -> #M r#
             float matchingNGrams = 0.0f;

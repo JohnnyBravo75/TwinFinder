@@ -64,12 +64,12 @@ namespace TwinFinder.Base.Graph.Algorithm
             // find the node in nodes with the smallest distance value
             int minDist = Int32.MaxValue;
             GraphNode<T> minNode = null;
-            foreach (GraphNode<T> n in nodes)
+            foreach (GraphNode<T> node in nodes)
             {
-                if (((int)dist[n.Value]) <= minDist)
+                if (((int)dist[node.Value]) <= minDist)
                 {
-                    minDist = (int)dist[n.Value];
-                    minNode = n;
+                    minDist = (int)dist[node.Value];
+                    minNode = node;
                 }
             }
 
@@ -127,9 +127,11 @@ namespace TwinFinder.Base.Graph.Algorithm
                 traceBackSteps.Push(temp);
             } while (!current.Value.Equals(start.Value));
 
-            StringBuilder sb = new StringBuilder(30 * traceBackSteps.Count);
+            var sb = new StringBuilder(30 * traceBackSteps.Count);
             while (traceBackSteps.Count > 0)
+            {
                 sb.Append((string)traceBackSteps.Pop());
+            }
 
             Console.WriteLine(results + "\r\n\r\n" + sb.ToString());
 
@@ -143,8 +145,12 @@ namespace TwinFinder.Base.Graph.Algorithm
         public void ShowEdges()
         {
             foreach (GraphNode<T> node in this.graph.Nodes)
+            {
                 foreach (GraphNode<T> edge in node.Neighbors)
+                {
                     Console.WriteLine("{0} <-> {1} - {2} miles", node.Value, edge.Value, edge.CostToNeighbor(edge));
+                }
+            }
         }
     }
 }

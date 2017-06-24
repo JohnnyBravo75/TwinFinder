@@ -31,11 +31,9 @@ OTHER DEALINGS IN THE SOFTWARE.
 ///		"Double Metaphone (c) 1998, 1999 by Lawrence Philips"
 ///		http://www.ddj.com/cpp/184401251?pgno=1
 ///
-
-using TwinFinder.Matching.StringPhoneticKey.Base;
-
 namespace TwinFinder.Matching.StringPhoneticKey
 {
+    using TwinFinder.Matching.StringPhoneticKey.Base;
     using System;
     using System.Text;
 
@@ -406,13 +404,13 @@ namespace TwinFinder.Matching.StringPhoneticKey
                                 //not e.g. 'cagney'
                                 if (!IsStringAt(workingString, (current + 2), strEY)
                                     && (workingString[current + 1] != charY) && !isSlavoGermanic)
-                                {
-                                    metaphoneData.Add(strN, strKN);
-                                }
-                                else
-                                {
-                                    metaphoneData.Add(strKN);
-                                }
+                            {
+                                metaphoneData.Add(strN, strKN);
+                            }
+                            else
+                            {
+                                metaphoneData.Add(strKN);
+                            }
                             current += 2;
                             break;
                         }
@@ -461,13 +459,13 @@ namespace TwinFinder.Matching.StringPhoneticKey
                             else
                                 //always soft if french ending
                                 if (IsStringAt(workingString, (current + 1), strIERsp))
-                                {
-                                    metaphoneData.Add(strJ);
-                                }
-                                else
-                                {
-                                    metaphoneData.Add(strJ, strK);
-                                }
+                            {
+                                metaphoneData.Add(strJ);
+                            }
+                            else
+                            {
+                                metaphoneData.Add(strJ, strK);
+                            }
                             current += 2;
                             break;
                         }
@@ -521,18 +519,18 @@ namespace TwinFinder.Matching.StringPhoneticKey
                             if (this.IsVowel(workingString[current - 1])
                                 && !isSlavoGermanic && ((workingString[current + 1] == charA)
                                 || (workingString[current + 1] == charO)))
-                            {
-                                metaphoneData.Add(strJ, strH);
-                            }
-                            else if (current == last)
-                            {
-                                metaphoneData.Add(strJ, sp);
-                            }
-                            else if (!IsStringAt(workingString, (current + 1), strL, strT, strK, strS, strN, strM, strB, strZ)
-                                && !IsStringAt(workingString, (current - 1), strS, strK, strL))
-                            {
-                                metaphoneData.Add(strJ);
-                            }
+                        {
+                            metaphoneData.Add(strJ, strH);
+                        }
+                        else if (current == last)
+                        {
+                            metaphoneData.Add(strJ, sp);
+                        }
+                        else if (!IsStringAt(workingString, (current + 1), strL, strT, strK, strS, strN, strM, strB, strZ)
+                            && !IsStringAt(workingString, (current - 1), strS, strK, strL))
+                        {
+                            metaphoneData.Add(strJ);
+                        }
 
                         if (workingString[current + 1] == charJ) //it could happen!
                         {
