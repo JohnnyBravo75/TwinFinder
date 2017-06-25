@@ -37,8 +37,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnidecodeSharpFork">
-      <HintPath>..\References\UnidecodeSharpFork.dll</HintPath>
+    <Reference Include="UnidecodeSharpFork, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UnidecodeSharpFork.1.0.0\lib\UnidecodeSharpFork.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -152,7 +153,9 @@
     <Compile Include="Base\Utils\StringWriterWithEncoding.cs" />
     <Compile Include="Base\Utils\XmlSerializerHelper.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
