@@ -8,7 +8,6 @@ using TwinFinder.Matching.StringFuzzyCompare.AddressSpecific;
 using TwinFinder.Matching.StringFuzzyCompare.Aggregators;
 using TwinFinder.Matching.StringFuzzyCompare.Common;
 using TwinFinder.Matching.StringPhoneticKey;
-using TwinFinder.Matching.StringPhoneticKey.Base;
 
 namespace TwinFinder.Sample
 {
@@ -50,11 +49,19 @@ namespace TwinFinder.Sample
             string explainPlan = "";
             float result = 0.0f;
 
-            var defGroup = new CompareDefinitionGroup()
+            if (this.chkToogleMode.Checked)
             {
-                Aggregator = new MaximumAggregator(),
+                // Comparedefinition is extracted from the dataannotations on the properties
+                result = MatchingService.Instance.CompareRecords(this.adr1, this.adr2, null, out explainPlan);
+            }
+            else
+            {
+                // create a Comparedefintion for the dynmaic data
+                var defGroup = new CompareDefinitionGroup()
+                {
+                    Aggregator = new MaximumAggregator(),
 
-                CompareDefinitions = new List<CompareDefinition>()
+                    CompareDefinitions = new List<CompareDefinition>()
                     {
                         new CompareDefinition()
                         {
@@ -106,14 +113,8 @@ namespace TwinFinder.Sample
                             }
                         }
                     }
-            };
+                };
 
-            if (this.chkToogleMode.Checked)
-            {
-                result = MatchingService.Instance.CompareRecords(this.adr1, this.adr2, null, out explainPlan);
-            }
-            else
-            {
                 var record1 = new Dictionary<string, string>()
                 {
                     {"Firstname", this.adr1.Firstname },
@@ -143,15 +144,16 @@ namespace TwinFinder.Sample
 
         private void btnGenerateMatchKey_Click(object sender, EventArgs e)
         {
-            var result = new StringBuilder();
+            string text = this.txtMatchKeySample.Text;
 
-            result.AppendLine("EditexKey=" + new EditexKey().BuildKey(this.txtMatchKeySample.Text));
-            result.AppendLine("DaitchMokotoff=" + new DaitchMokotoff().BuildKey(this.txtMatchKeySample.Text));
-            result.AppendLine("Phonix=" + new Phonix().BuildKey(this.txtMatchKeySample.Text));
-            result.AppendLine("SoundEx=" + new SoundEx().BuildKey(this.txtMatchKeySample.Text));
-            result.AppendLine("SimpleTextKey=" + new SimpleTextKey().BuildKey(this.txtMatchKeySample.Text));
-            result.AppendLine("Metaphone=" + new Metaphone().BuildKey(this.txtMatchKeySample.Text));
-            result.AppendLine("DoubleMetaphone=" + new DoubleMetaphone().BuildKey(this.txtMatchKeySample.Text));
+            var result = new StringBuilder();
+            result.AppendLine("EditexKey=" + new EditexKey().BuildKey(text));
+            result.AppendLine("DaitchMokotoff=" + new DaitchMokotoff().BuildKey(text));
+            result.AppendLine("Phonix=" + new Phonix().BuildKey(text));
+            result.AppendLine("SoundEx=" + new SoundEx().BuildKey(text));
+            result.AppendLine("SimpleTextKey=" + new SimpleTextKey().BuildKey(text));
+            result.AppendLine("Metaphone=" + new Metaphone().BuildKey(text));
+            result.AppendLine("DoubleMetaphone=" + new DoubleMetaphone().BuildKey(text));
 
             this.txtMatchKeyResult.Text = result.ToString();
         }

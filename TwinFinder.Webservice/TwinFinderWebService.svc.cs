@@ -1,7 +1,4 @@
-﻿using System.Web.Services.Protocols;
-using System.Xml;
-
-namespace TwinFinder.Webservice
+﻿namespace TwinFinder.Webservice
 {
     using System.Collections.Generic;
     using log4net;

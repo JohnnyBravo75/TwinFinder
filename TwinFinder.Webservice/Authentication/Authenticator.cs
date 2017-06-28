@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web.Configuration;
 
 namespace TwinFinder.Webservice
 {

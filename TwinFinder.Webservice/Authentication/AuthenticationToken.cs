@@ -1,4 +1,6 @@
-﻿namespace TwinFinder.Webservice
+﻿using System.Linq;
+
+namespace TwinFinder.Webservice
 {
     using System;
     using System.Runtime.Serialization;
@@ -47,7 +49,7 @@
             }
 
             if (this.UserName == other.UserName &&
-                this.PasswordHash == other.PasswordHash &&
+                (this.PasswordHash != null && this.PasswordHash.SequenceEqual(other.PasswordHash)) &&
                 this.ClientId == other.ClientId &&
                 this.CreationDateUtc == other.CreationDateUtc)
             {

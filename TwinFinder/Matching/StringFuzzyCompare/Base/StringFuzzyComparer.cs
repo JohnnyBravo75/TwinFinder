@@ -36,7 +36,14 @@ namespace TwinFinder.Matching.StringFuzzyCompare.Base
         [DataMember]
         public StringCostFunction CostFunction
         {
-            get { return this.costFunction; }
+            get
+            {
+                if (this.costFunction == null)
+                {
+                    this.costFunction = new DefaultSubstitutionCostFunction();
+                }
+                return this.costFunction;
+            }
             set { this.costFunction = value; }
         }
 
