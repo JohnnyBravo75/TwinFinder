@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Aggregators" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Aggregators" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Aggregators.Base" />
+  <xs:complexType name="AverageAggregator">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Aggregators.Base" base="q1:Aggregator">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AverageAggregator" nillable="true" type="tns:AverageAggregator" />
+  <xs:complexType name="HarmonicMeanAggregator">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Aggregators.Base" base="q2:Aggregator">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HarmonicMeanAggregator" nillable="true" type="tns:HarmonicMeanAggregator" />
+  <xs:complexType name="MaximumAggregator">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Aggregators.Base" base="q3:Aggregator">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MaximumAggregator" nillable="true" type="tns:MaximumAggregator" />
+  <xs:complexType name="MinimumAggregator">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Aggregators.Base" base="q4:Aggregator">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MinimumAggregator" nillable="true" type="tns:MinimumAggregator" />
+</xs:schema>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" />
+  <xs:complexType name="ExtendedEditex">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" base="q1:StringFuzzyComparer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FuzzyComparer" nillable="true" type="q1:StringFuzzyComparer" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExtendedEditex" nillable="true" type="tns:ExtendedEditex" />
+  <xs:complexType name="JaroWinkler">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" base="q2:StringFuzzyComparer">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="JaroWinkler" nillable="true" type="tns:JaroWinkler" />
+  <xs:complexType name="DiceCoefficent">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" base="q3:StringFuzzyComparer">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DiceCoefficent" nillable="true" type="tns:DiceCoefficent" />
+  <xs:complexType name="MongeElkan">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" base="q4:StringFuzzyComparer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FuzzyComparer" nillable="true" type="q4:StringFuzzyComparer" />
+          <xs:element minOccurs="0" name="UseSpecialAbbreviationCheck" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MongeElkan" nillable="true" type="tns:MongeElkan" />
+  <xs:complexType name="NGramDistance">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" base="q5:StringFuzzyComparer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NGramLength" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NGramDistance" nillable="true" type="tns:NGramDistance" />
+  <xs:complexType name="SmithWaterman">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" base="q6:StringFuzzyComparer">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SmithWaterman" nillable="true" type="tns:SmithWaterman" />
+  <xs:complexType name="Identity">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" base="q7:StringFuzzyComparer">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Identity" nillable="true" type="tns:Identity" />
+  <xs:complexType name="ExtendedJaccard">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" base="q8:StringFuzzyComparer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FuzzyComparer" nillable="true" type="q8:StringFuzzyComparer" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExtendedJaccard" nillable="true" type="tns:ExtendedJaccard" />
+  <xs:complexType name="DamerauLevenshteinDistance">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" base="q9:StringFuzzyComparer">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DamerauLevenshteinDistance" nillable="true" type="tns:DamerauLevenshteinDistance" />
+</xs:schema>

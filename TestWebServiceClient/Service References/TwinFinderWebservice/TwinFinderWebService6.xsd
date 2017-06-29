@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.Compare" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.Compare" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Aggregators.Base" />
+  <xs:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" />
+  <xs:complexType name="CompareDefinitionGroup">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Aggregators.Base" minOccurs="0" name="Aggregator" nillable="true" type="q1:Aggregator" />
+      <xs:element minOccurs="0" name="CompareDefinitions" nillable="true" type="tns:ArrayOfCompareDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompareDefinitionGroup" nillable="true" type="tns:CompareDefinitionGroup" />
+  <xs:complexType name="ArrayOfCompareDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CompareDefinition" nillable="true" type="tns:CompareDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompareDefinition" nillable="true" type="tns:ArrayOfCompareDefinition" />
+  <xs:complexType name="CompareDefinition">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Aggregators.Base" minOccurs="0" name="Aggregator" nillable="true" type="q2:Aggregator" />
+      <xs:element minOccurs="0" name="CompareFields" nillable="true" type="tns:ArrayOfCompareField" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StopFields" nillable="true" type="tns:ArrayOfCompareField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompareDefinition" nillable="true" type="tns:CompareDefinition" />
+  <xs:complexType name="ArrayOfCompareField">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CompareField" nillable="true" type="tns:CompareField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompareField" nillable="true" type="tns:ArrayOfCompareField" />
+  <xs:complexType name="CompareField">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FieldConverters" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" minOccurs="0" name="FuzzyComparer" nillable="true" type="q4:StringFuzzyComparer" />
+      <xs:element minOccurs="0" name="Name1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Weight" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompareField" nillable="true" type="tns:CompareField" />
+</xs:schema>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.AddressSpecific" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.AddressSpecific" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" />
+  <xs:complexType name="NameComparer">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" base="q1:StringFuzzyComparer">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NameComparer" nillable="true" type="tns:NameComparer" />
+  <xs:complexType name="CityComparer">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" base="q2:StringFuzzyComparer">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CityComparer" nillable="true" type="tns:CityComparer" />
+  <xs:complexType name="CompanyComparer">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" base="q3:StringFuzzyComparer">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CompanyComparer" nillable="true" type="tns:CompanyComparer" />
+  <xs:complexType name="PhoneComparer">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" base="q4:StringFuzzyComparer">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PhoneComparer" nillable="true" type="tns:PhoneComparer" />
+  <xs:complexType name="TitleComparer">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" base="q5:StringFuzzyComparer">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TitleComparer" nillable="true" type="tns:TitleComparer" />
+</xs:schema>

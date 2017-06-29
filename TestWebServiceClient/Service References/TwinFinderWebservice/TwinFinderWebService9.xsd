@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.StringCostFunctions" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.StringCostFunctions" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.StringCostFunctions.Base" />
+  <xs:complexType name="DefaultSubstitutionCostFunction">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.StringCostFunctions.Base" base="q1:StringCostFunction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DefaultSubstitutionCostFunction" nillable="true" type="tns:DefaultSubstitutionCostFunction" />
+  <xs:complexType name="CharGroupsSubstitutionCostFunction">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.StringCostFunctions.Base" base="q2:StringCostFunction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CharGroupsSubstitutionCostFunction" nillable="true" type="tns:CharGroupsSubstitutionCostFunction" />
+  <xs:complexType name="SmithWatermanCostFunction">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.StringCostFunctions.Base" base="q3:StringCostFunction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SmithWatermanCostFunction" nillable="true" type="tns:SmithWatermanCostFunction" />
+</xs:schema>

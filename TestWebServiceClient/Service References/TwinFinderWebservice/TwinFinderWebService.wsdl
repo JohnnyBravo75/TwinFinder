@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TwinFinderWebService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.Compare" />
+      <xsd:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Aggregators.Base" />
+      <xsd:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Aggregators" />
+      <xsd:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Base" />
+      <xsd:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.StringCostFunctions.Base" />
+      <xsd:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.StringCostFunctions" />
+      <xsd:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.Common" />
+      <xsd:import schemaLocation="http://localhost:58301/TwinFinderWebService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/TwinFinder.Matching.StringFuzzyCompare.AddressSpecific" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITwinFinderWebService_CompareRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompareRecords" />
+  </wsdl:message>
+  <wsdl:message name="ITwinFinderWebService_CompareRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompareRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITwinFinderWebService_CreateSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSession" />
+  </wsdl:message>
+  <wsdl:message name="ITwinFinderWebService_CreateSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITwinFinderWebService_CloseSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:CloseSession" />
+  </wsdl:message>
+  <wsdl:message name="ITwinFinderWebService_CloseSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CloseSessionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITwinFinderWebService">
+    <wsdl:operation name="CompareRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITwinFinderWebService/CompareRecords" message="tns:ITwinFinderWebService_CompareRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITwinFinderWebService/CompareRecordsResponse" message="tns:ITwinFinderWebService_CompareRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITwinFinderWebService/CreateSession" message="tns:ITwinFinderWebService_CreateSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITwinFinderWebService/CreateSessionResponse" message="tns:ITwinFinderWebService_CreateSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITwinFinderWebService/CloseSession" message="tns:ITwinFinderWebService_CloseSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITwinFinderWebService/CloseSessionResponse" message="tns:ITwinFinderWebService_CloseSession_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="customBinding0_ITwinFinderWebService" type="tns:ITwinFinderWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CompareRecords">
+      <soap:operation soapAction="http://tempuri.org/ITwinFinderWebService/CompareRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSession">
+      <soap:operation soapAction="http://tempuri.org/ITwinFinderWebService/CreateSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseSession">
+      <soap:operation soapAction="http://tempuri.org/ITwinFinderWebService/CloseSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TwinFinderWebService">
+    <wsdl:port name="customBinding0_ITwinFinderWebService" binding="tns:customBinding0_ITwinFinderWebService">
+      <soap:address location="http://localhost:58301/TwinFinderWebService.svc/basic" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
