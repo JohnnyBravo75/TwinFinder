@@ -1,4 +1,4 @@
-# TwinFinder
+![](https://github.com/Assets/images/TTwinFinder_Logo.png) 
 
 Library for fuzzy string matching. 
 Can be used to find doublets or similar patterns in strings.
